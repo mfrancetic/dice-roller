@@ -3,4 +3,5 @@
     <string name="roll">Roll</string>
     <string name="let_us_roll">Let\'s roll!</string>
     <string name="button_clicked">Button clicked!</string>
+    <string name="rolled_number">Rolled number</string>
 </resources>
