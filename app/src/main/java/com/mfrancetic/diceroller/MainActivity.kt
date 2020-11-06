@@ -1,27 +1,25 @@
 package com.mfrancetic.diceroller
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.mfrancetic.diceroller.databinding.ActivityMainBinding
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var diceImage: ImageView
-    lateinit var rollButton: Button;
+    private lateinit var binding: ActivityMainBinding;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        diceImage = findViewById(R.id.dice_image);
-        rollButton = findViewById(R.id.roll_button)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view: View = binding.root
+        setContentView(view)
 
-        rollButton.text = resources.getText(R.string.let_us_roll);
+        binding.rollButton.text = resources.getText(R.string.let_us_roll);
 
-        rollButton.setOnClickListener {
+        binding.rollButton.setOnClickListener {
             rollDice();
         }
     }
@@ -38,6 +36,6 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_6
         }
 
-        diceImage.setImageResource(drawableResource)
+        binding.diceImage.setImageResource(drawableResource)
     }
 }
